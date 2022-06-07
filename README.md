@@ -1,7 +1,7 @@
 # Créer un jeu de survie avec Unity
 Bienvenue sur le repo officiel de la série de vidéos "Créer un jeu de survie avec Unity" réalisée par zef de la [TUTO UNITY FR](https://www.youtube.com/c/tutounityfr).
 
-[![Alt text](https://www.tutounity.fr/upload/github/survival2022/miniature-survie01.jpg)](https://www.youtube.com/c/tutounityfr)
+[![Alt text](https://www.tutounity.fr/upload/github/survival2022/miniature-survie.jpg)](https://www.youtube.com/c/tutounityfr)
 
 Cette série de vidéos vous permet d'apprendre à développer un jeu de survie en 3D et avec un personnage à la troisième personne sur Unity.
 
