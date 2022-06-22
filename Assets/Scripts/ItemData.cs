@@ -11,6 +11,7 @@ public class ItemData : ScriptableObject
     public GameObject prefab;
 
     public ItemType itemType;
+    public EquipmentType equipmentType;
 }
 
 public enum ItemType
@@ -18,4 +19,13 @@ public enum ItemType
     Ressource,
     Equipment,
     Consumable
+}
+
+public enum EquipmentType
+{
+    Head,
+    Chest,
+    Hands,
+    Legs,
+    Feet
 }

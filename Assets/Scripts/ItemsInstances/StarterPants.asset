@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca79c4638662064a898de39b6ecc42a, type: 3}
+  m_Name: StarterPants
+  m_EditorClassIdentifier: 
+  name: Pants
+  description: A nice pants !
+  visual: {fileID: 21300000, guid: dff4124e641058b4589e05274e744e74, type: 3}
+  prefab: {fileID: 4482280266995810147, guid: 0188a647037119d4ca2aba5580945749, type: 3}
+  itemType: 1
+  equipmentType: 3
