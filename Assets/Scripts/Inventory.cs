@@ -6,6 +6,8 @@ using System.Linq;
 
 public class Inventory : MonoBehaviour
 {
+    [Header("Inventory Panel References")]
+
     [SerializeField]
     private List<ItemData> content = new List<ItemData>();
 
@@ -16,6 +18,9 @@ public class Inventory : MonoBehaviour
     private Transform inventorySlotsParent;
 
     const int InventorySize = 24;
+
+    [SerializeField]
+    private Transform dropPoint;
 
     [Header("Action Panel References")]
 
@@ -39,13 +44,29 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Sprite emptySlotVisual;
 
-    [SerializeField]
-    private Transform dropPoint;
+    [Header("Equipment Panel References")]
 
     [SerializeField]
     private EquipmentLibrary equipmentLibrary;
 
+    [SerializeField]
+    private Image headSlotImage;
+
+    [SerializeField]
+    private Image chestSlotImage;
+
+    [SerializeField]
+    private Image handsSlotImage;
+
+    [SerializeField]
+    private Image legsSlotImage;
+
+    [SerializeField]
+    private Image feetSlotImage;
+
     public static Inventory instance;
+
+    private bool isOpen = false;
 
     private void Awake()
     {
@@ -61,7 +82,14 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+            if(isOpen)
+            {
+                CloseInventory();
+            }
+            else
+            {
+                OpenInventory();
+            }
         }
     }
 
@@ -71,9 +99,18 @@ public class Inventory : MonoBehaviour
         RefreshContent();
     }
 
+    private void OpenInventory()
+    {
+        inventoryPanel.SetActive(true);
+        isOpen = true;
+    }
+
     public void CloseInventory()
     {
         inventoryPanel.SetActive(false);
+        actionPanel.SetActive(false);
+        TooltipSystem.instance.Hide();
+        isOpen = false;
     }
 
     private void RefreshContent()
@@ -158,6 +195,32 @@ public class Inventory : MonoBehaviour
             }
 
             equipmentLibraryItem.itemPrefab.SetActive(true);
+
+            switch(itemCurrentlySelected.equipmentType)
+            {
+                case EquipmentType.Head:
+                    headSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+
+                case EquipmentType.Chest:
+                    chestSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+
+                case EquipmentType.Hands:
+                    handsSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+
+                case EquipmentType.Legs:
+                    legsSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+
+                case EquipmentType.Feet:
+                    feetSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+            }
+
+            content.Remove(itemCurrentlySelected);
+            RefreshContent();
         }
         else
         {
