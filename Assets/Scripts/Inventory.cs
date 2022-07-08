@@ -64,6 +64,28 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Image feetSlotImage;
 
+    // Garde une trace des équipements actuels
+    private ItemData equipedHeadItem;
+    private ItemData equipedChestItem;
+    private ItemData equipedHandsItem;
+    private ItemData equipedLegsItem;
+    private ItemData equipedFeetItem;
+
+    [SerializeField]
+    private Button headSlotDesequipButton;
+
+    [SerializeField]
+    private Button chestSlotDesequipButton;
+
+    [SerializeField]
+    private Button handsSlotDesequipButton;
+
+    [SerializeField]
+    private Button legsSlotDesequipButton;
+
+    [SerializeField]
+    private Button feetSlotDesequipButton;
+
     public static Inventory instance;
 
     private bool isOpen = false;
@@ -75,6 +97,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        CloseInventory();
         RefreshContent();
     }
 
@@ -132,6 +155,8 @@ public class Inventory : MonoBehaviour
             currentSlot.item = content[i];
             currentSlot.itemVisual.sprite = content[i].visual;
         }
+
+        UpdateEquipmentsDesequipButtons();
     }
 
     public bool IsFull()
@@ -189,35 +214,45 @@ public class Inventory : MonoBehaviour
 
         if(equipmentLibraryItem != null)
         {
+            switch(itemCurrentlySelected.equipmentType)
+            {
+                case EquipmentType.Head:
+                    DisablePreviousEquipedEquipment(equipedHeadItem);
+                    headSlotImage.sprite = itemCurrentlySelected.visual;
+                    equipedHeadItem = itemCurrentlySelected;
+                    break;
+
+                case EquipmentType.Chest:
+                    DisablePreviousEquipedEquipment(equipedChestItem);
+                    chestSlotImage.sprite = itemCurrentlySelected.visual;
+                    equipedChestItem = itemCurrentlySelected;
+                    break;
+
+                case EquipmentType.Hands:
+                    DisablePreviousEquipedEquipment(equipedHandsItem);
+                    handsSlotImage.sprite = itemCurrentlySelected.visual;
+                    equipedHandsItem = itemCurrentlySelected;
+                    break;
+
+                case EquipmentType.Legs:
+                    DisablePreviousEquipedEquipment(equipedLegsItem);
+                    legsSlotImage.sprite = itemCurrentlySelected.visual;
+                    equipedLegsItem = itemCurrentlySelected;
+                    break;
+
+                case EquipmentType.Feet:
+                    DisablePreviousEquipedEquipment(equipedFeetItem);
+                    feetSlotImage.sprite = itemCurrentlySelected.visual;
+                    equipedFeetItem = itemCurrentlySelected;
+                    break;
+            }
+
             for (int i = 0; i < equipmentLibraryItem.elementsToDisable.Length; i++)
             {
                 equipmentLibraryItem.elementsToDisable[i].SetActive(false);
             }
 
             equipmentLibraryItem.itemPrefab.SetActive(true);
-
-            switch(itemCurrentlySelected.equipmentType)
-            {
-                case EquipmentType.Head:
-                    headSlotImage.sprite = itemCurrentlySelected.visual;
-                    break;
-
-                case EquipmentType.Chest:
-                    chestSlotImage.sprite = itemCurrentlySelected.visual;
-                    break;
-
-                case EquipmentType.Hands:
-                    handsSlotImage.sprite = itemCurrentlySelected.visual;
-                    break;
-
-                case EquipmentType.Legs:
-                    legsSlotImage.sprite = itemCurrentlySelected.visual;
-                    break;
-
-                case EquipmentType.Feet:
-                    feetSlotImage.sprite = itemCurrentlySelected.visual;
-                    break;
-            }
 
             content.Remove(itemCurrentlySelected);
             RefreshContent();
@@ -244,6 +279,112 @@ public class Inventory : MonoBehaviour
         content.Remove(itemCurrentlySelected);
         RefreshContent();
         CloseActionPanel();
+    }
+
+    private void UpdateEquipmentsDesequipButtons()
+    {
+        headSlotDesequipButton.onClick.RemoveAllListeners();
+        headSlotDesequipButton.onClick.AddListener(delegate { DesequipEquipment(EquipmentType.Head); });
+        headSlotDesequipButton.gameObject.SetActive(equipedHeadItem);
+
+        chestSlotDesequipButton.onClick.RemoveAllListeners();
+        chestSlotDesequipButton.onClick.AddListener(delegate { DesequipEquipment(EquipmentType.Chest); });
+        chestSlotDesequipButton.gameObject.SetActive(equipedChestItem);
+
+        handsSlotDesequipButton.onClick.RemoveAllListeners();
+        handsSlotDesequipButton.onClick.AddListener(delegate { DesequipEquipment(EquipmentType.Hands); });
+        handsSlotDesequipButton.gameObject.SetActive(equipedHandsItem);
+
+        legsSlotDesequipButton.onClick.RemoveAllListeners();
+        legsSlotDesequipButton.onClick.AddListener(delegate { DesequipEquipment(EquipmentType.Legs); });
+        legsSlotDesequipButton.gameObject.SetActive(equipedLegsItem);
+
+        feetSlotDesequipButton.onClick.RemoveAllListeners();
+        feetSlotDesequipButton.onClick.AddListener(delegate { DesequipEquipment(EquipmentType.Feet); });
+        feetSlotDesequipButton.gameObject.SetActive(equipedFeetItem);
+    }
+
+    public void DesequipEquipment(EquipmentType equipmentType)
+    {        
+        
+        if(IsFull())
+        {
+            Debug.Log("L'inventaire est plein, impossible de se déséquiper de cet élément");
+            return;
+        }
+
+        ItemData currentItem = null;
+
+        switch(equipmentType)
+        {
+            case EquipmentType.Head:
+                currentItem = equipedHeadItem;
+                equipedHeadItem = null;
+                headSlotImage.sprite = emptySlotVisual;
+                break;
+
+            case EquipmentType.Chest:
+                currentItem = equipedChestItem;
+                equipedChestItem = null;
+                chestSlotImage.sprite = emptySlotVisual;
+                break;
+
+            case EquipmentType.Hands:
+                currentItem = equipedHandsItem;
+                equipedHandsItem = null;
+                handsSlotImage.sprite = emptySlotVisual;
+                break;
+
+            case EquipmentType.Legs:
+                currentItem = equipedLegsItem;
+                equipedLegsItem = null;
+                legsSlotImage.sprite = emptySlotVisual;
+                break;
+
+            case EquipmentType.Feet:
+                currentItem = equipedFeetItem;
+                equipedFeetItem = null;
+                feetSlotImage.sprite = emptySlotVisual;
+                break;
+        }
+
+        EquipmentLibraryItem equipmentLibraryItem = equipmentLibrary.content.Where(elem => elem.itemData == currentItem).First();
+
+        if (equipmentLibraryItem != null)
+        {
+            for (int i = 0; i < equipmentLibraryItem.elementsToDisable.Length; i++)
+            {
+                equipmentLibraryItem.elementsToDisable[i].SetActive(true);
+            }
+
+            equipmentLibraryItem.itemPrefab.SetActive(false);
+        }
+
+        AddItem(currentItem);
+        RefreshContent();
+
+    }
+
+    private void DisablePreviousEquipedEquipment(ItemData itemToDisable)
+    {
+        if(itemToDisable == null)
+        {
+            return;
+        }
+
+        EquipmentLibraryItem equipmentLibraryItem = equipmentLibrary.content.Where(elem => elem.itemData == itemToDisable).First();
+
+        if (equipmentLibraryItem != null)
+        {
+            for (int i = 0; i < equipmentLibraryItem.elementsToDisable.Length; i++)
+            {
+                equipmentLibraryItem.elementsToDisable[i].SetActive(true);
+            }
+
+            equipmentLibraryItem.itemPrefab.SetActive(false);
+        }
+
+        AddItem(itemToDisable);
     }
 
 }
