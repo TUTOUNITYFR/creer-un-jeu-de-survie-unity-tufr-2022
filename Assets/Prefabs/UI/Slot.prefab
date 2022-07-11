@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   itemVisual: {fileID: 5510068469564112212}
+  itemActionsSystem: {fileID: 0}
 --- !u!1 &5510068469564112214
 GameObject:
   m_ObjectHideFlags: 0
