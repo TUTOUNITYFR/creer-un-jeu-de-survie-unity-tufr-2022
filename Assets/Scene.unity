@@ -319,6 +319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1001 &33590704
@@ -416,6 +420,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &56542407
@@ -712,6 +720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!224 &80248861 stripped
@@ -1000,6 +1012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!224 &157886386 stripped
@@ -1102,6 +1118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &162752776
@@ -1432,6 +1452,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!114 &293543066 stripped
@@ -1597,6 +1621,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!224 &408676913 stripped
@@ -1766,6 +1794,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!224 &450251114 stripped
@@ -1868,6 +1900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!224 &503641171 stripped
@@ -2505,6 +2541,10 @@ PrefabInstance:
       propertyPath: content
       value: slot 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1001 &764929555
@@ -2828,6 +2868,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!114 &860821696 stripped
@@ -2941,6 +2985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &928515875 stripped
@@ -3313,6 +3361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &1182200688
@@ -3548,6 +3600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &1273579646 stripped
@@ -3639,8 +3695,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1695160465}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 1695160467}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: UseActionButton
         m_Mode: 1
         m_Arguments:
@@ -3962,8 +4018,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1695160465}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 1695160467}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: DropActionButton
         m_Mode: 1
         m_Arguments:
@@ -4112,8 +4168,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1695160465}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 1695160467}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: DestroyActionButton
         m_Mode: 1
         m_Arguments:
@@ -4257,6 +4313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &1512421084
@@ -4458,6 +4518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &1521099700
@@ -4640,6 +4704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &1562807149 stripped
@@ -4832,6 +4900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &1640764292
@@ -5111,6 +5183,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1695160466}
   - component: {fileID: 1695160465}
+  - component: {fileID: 1695160468}
+  - component: {fileID: 1695160467}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -5130,29 +5204,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71a6e1b07ab7048a0d52971f6d40f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipment: {fileID: 1695160468}
+  itemActionsSystem: {fileID: 1695160467}
   content:
   - {fileID: 11400000, guid: 1ce1498f5de948b47a3ac30ae9ba482f, type: 2}
   - {fileID: 11400000, guid: b17dfb8644f91cc4a8d8dc0ad1ba8157, type: 2}
   inventoryPanel: {fileID: 1896388386}
   inventorySlotsParent: {fileID: 1521099701}
-  dropPoint: {fileID: 744406230}
-  actionPanel: {fileID: 1935082955}
-  useItemButton: {fileID: 1277710491}
-  equipItemButton: {fileID: 2081150224}
-  dropItemButton: {fileID: 1405379557}
-  destroyItemButton: {fileID: 1489715129}
   emptySlotVisual: {fileID: 21300000, guid: 25d0ac2a41f0cd541869ac8148bf3e3f, type: 3}
-  equipmentLibrary: {fileID: 690569725}
-  headSlotImage: {fileID: 538505017}
-  chestSlotImage: {fileID: 2082241887}
-  handsSlotImage: {fileID: 1334440867}
-  legsSlotImage: {fileID: 860821696}
-  feetSlotImage: {fileID: 1681600473}
-  headSlotDesequipButton: {fileID: 293543066}
-  chestSlotDesequipButton: {fileID: 598771387}
-  handsSlotDesequipButton: {fileID: 1441624384}
-  legsSlotDesequipButton: {fileID: 1145163592}
-  feetSlotDesequipButton: {fileID: 806045092}
 --- !u!4 &1695160466
 Transform:
   m_ObjectHideFlags: 0
@@ -5168,6 +5227,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1695160467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695160464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133471b370d1c804398595f565f4d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 1695160468}
+  actionPanel: {fileID: 1935082955}
+  dropPoint: {fileID: 744406230}
+  useItemButton: {fileID: 1277710491}
+  equipItemButton: {fileID: 2081150224}
+  dropItemButton: {fileID: 1405379557}
+  destroyItemButton: {fileID: 1489715129}
+  itemCurrentlySelected: {fileID: 0}
+--- !u!114 &1695160468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695160464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fd9114a6dc3f64392e85d982d63468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemActionsSystem: {fileID: 1695160467}
+  equipmentLibrary: {fileID: 690569725}
+  headSlotImage: {fileID: 538505017}
+  chestSlotImage: {fileID: 2082241887}
+  handsSlotImage: {fileID: 1334440867}
+  legsSlotImage: {fileID: 860821696}
+  feetSlotImage: {fileID: 1681600473}
+  headSlotDesequipButton: {fileID: 293543066}
+  chestSlotDesequipButton: {fileID: 598771387}
+  handsSlotDesequipButton: {fileID: 1441624384}
+  legsSlotDesequipButton: {fileID: 1145163592}
+  feetSlotDesequipButton: {fileID: 806045092}
 --- !u!1001 &1696879924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5263,6 +5366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &1704218991 stripped
@@ -5471,6 +5578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &1801711316
@@ -5798,6 +5909,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &1866372802
@@ -6154,6 +6269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!224 &2036962773 stripped
@@ -6256,6 +6375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1 &2064473986 stripped
@@ -6352,8 +6475,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1695160465}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 1695160467}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: EquipActionButton
         m_Mode: 1
         m_Arguments:
@@ -6877,6 +7000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot
       objectReference: {fileID: 0}
+    - target: {fileID: 6588394213468933578, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 1695160467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
 --- !u!1001 &6204736624095390029
