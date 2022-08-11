@@ -6,12 +6,24 @@ public class Harvestable : MonoBehaviour
 {
     [SerializeField]
     public Ressource[] harvestableItems;
+
+    [Header("Options")]
+    public Tool tool;
+    public bool disableKinematicOnHarvest;
+    public float destroyDelay;
 }
 
 [System.Serializable]
 public class Ressource
 {
     public ItemData itemData;
-    public int minAmountSpawned;
-    public int maxAmountSpawned;
+
+    [Range(0,100)]
+    public int dropChance;
+}
+
+public enum Tool
+{
+    Pickaxe,
+    Axe
 }
