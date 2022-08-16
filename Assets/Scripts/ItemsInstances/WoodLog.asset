@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Wood log
   description: A simple a wood log
-  visual: {fileID: 21300000, guid: e18d6a30c07f8bf46851db87abaf9171, type: 3}
-  prefab: {fileID: 4649339338613370920, guid: c3e8936788d1db94e838bf71473de328, type: 3}
+  visual: {fileID: 21300000, guid: 383f72c273aeb8543a77bf65174c4827, type: 3}
+  prefab: {fileID: 1493958779012120596, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
   itemType: 0
   equipmentType: 0
