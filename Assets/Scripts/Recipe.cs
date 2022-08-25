@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Recipe : MonoBehaviour
 {
@@ -42,25 +43,23 @@ public class Recipe : MonoBehaviour
 
         bool canCraft = true;
 
-        // On créer une copie de l'inventaire pour vérifier si on a chacun des éléments nécessaires au craft
-        List<ItemData> inventoryCopy = new List<ItemData>(Inventory.instance.GetContent());
-
         for (int i = 0; i < recipe.requiredItems.Length; i++)
         {
-            ItemData requiredItem = recipe.requiredItems[i];
-
+            // Récupère tous les éléments nécessaires pour cette recette
             GameObject requiredItemGO = Instantiate(elementRequiredPrefab, elementsRequiredParent);
+            Image requiredItemGOImage = requiredItemGO.GetComponent<Image>();
+            ItemData requiredItem = recipe.requiredItems[i].itemData;
+            ElementRequired elementRequired = requiredItemGO.GetComponent<ElementRequired>();
 
             // Slot permet l'affichage du tooltip lorsqu'on lui passe un Item
             requiredItemGO.GetComponent<Slot>().item = requiredItem;
 
-            Image requiredItemGOImage = requiredItemGO.GetComponent<Image>();
+            // Si l'inventaire contient l'élément requis on le retire de l'inventaire et on passe au suivant
+            ItemInInventory itemInInventoryCopy = Inventory.instance.GetContent().Where(elem => elem.itemData == requiredItem).FirstOrDefault();
 
-            // Si la copie d'inventaire contient l'élément requis on le retire de l'inventaire et on passe au suivant
-            if (inventoryCopy.Contains(requiredItem))
+            if (itemInInventoryCopy != null && itemInInventoryCopy.count >= recipe.requiredItems[i].count)
             {
                 requiredItemGOImage.color = availableColor;
-                inventoryCopy.Remove(requiredItem);
             }
             else
             {
@@ -68,7 +67,9 @@ public class Recipe : MonoBehaviour
                 canCraft = false;
             }
 
-            requiredItemGO.transform.GetChild(0).GetComponent<Image>().sprite = recipe.requiredItems[i].visual;
+            // Configure le visuel de l'élément requis
+            elementRequired.elementImage.sprite = recipe.requiredItems[i].itemData.visual;
+            elementRequired.elementCountText.text = recipe.requiredItems[i].count.ToString();
         }
 
         // Gestion de l'affichage du bouton
@@ -89,7 +90,7 @@ public class Recipe : MonoBehaviour
     {
         for (int i = 0; i < currentRecipe.requiredItems.Length; i++)
         {
-            Inventory.instance.RemoveItem(currentRecipe.requiredItems[i]);
+            Inventory.instance.RemoveItem(currentRecipe.requiredItems[i].itemData, currentRecipe.requiredItems[i].count);
         }
 
         Inventory.instance.AddItem(currentRecipe.craftableItem);
