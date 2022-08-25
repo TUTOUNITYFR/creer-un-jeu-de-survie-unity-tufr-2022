@@ -4,5 +4,5 @@ using UnityEngine;
 public class RecipeData : ScriptableObject
 {
     public ItemData craftableItem;
-    public ItemData[] requiredItems;
+    public ItemInInventory[] requiredItems;
 }

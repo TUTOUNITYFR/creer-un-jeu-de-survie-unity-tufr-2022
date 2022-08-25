@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Inventory : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Inventory : MonoBehaviour
     [Header("INVENTORY SYSTEM VARIABLES")]
 
     [SerializeField]
-    private List<ItemData> content = new List<ItemData>();
+    private List<ItemInInventory> content = new List<ItemInInventory>();
 
     [SerializeField]
     private GameObject inventoryPanel;
@@ -61,17 +62,43 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(ItemData item)
     {
-        content.Add(item);
+        ItemInInventory itemInInventory = content.Where(elem => elem.itemData == item).FirstOrDefault();
+
+        if(itemInInventory != null && item.stackable)
+        {
+            itemInInventory.count++;
+        }
+        else
+        {
+            content.Add(
+                new ItemInInventory
+                {
+                    itemData = item,
+                    count = 1
+                }
+            );
+        }
+
         RefreshContent();
     }
 
-    public void RemoveItem(ItemData item)
+    public void RemoveItem(ItemData item, int count = 1)
     {
-        content.Remove(item);
+        ItemInInventory itemInInventory = content.Where(elem => elem.itemData == item).FirstOrDefault();
+
+        if(itemInInventory.count > count && item.stackable)
+        {
+            itemInInventory.count -= count;
+        }
+        else
+        {
+            content.Remove(itemInInventory);
+        }
+
         RefreshContent();
     }
 
-    public List<ItemData> GetContent()
+    public List<ItemInInventory> GetContent()
     {
         return content;
     }
@@ -99,6 +126,7 @@ public class Inventory : MonoBehaviour
 
             currentSlot.item = null;
             currentSlot.itemVisual.sprite = emptySlotVisual;
+            currentSlot.countText.enabled = false;
         }
 
         // On peuple le visuel des slots selon le contenu réel de l'inventaire
@@ -106,8 +134,14 @@ public class Inventory : MonoBehaviour
         {
             Slot currentSlot = inventorySlotsParent.GetChild(i).GetComponent<Slot>();
 
-            currentSlot.item = content[i];
-            currentSlot.itemVisual.sprite = content[i].visual;
+            currentSlot.item = content[i].itemData;
+            currentSlot.itemVisual.sprite = content[i].itemData.visual;
+
+            if(currentSlot.item.stackable)
+            {
+                currentSlot.countText.enabled = true;
+                currentSlot.countText.text = content[i].count.ToString();
+            }
         }
 
         equipment.UpdateEquipmentsDesequipButtons();
@@ -119,4 +153,11 @@ public class Inventory : MonoBehaviour
         return InventorySize == content.Count;
     }
 
+}
+
+[System.Serializable]
+public class ItemInInventory
+{
+    public ItemData itemData;
+    public int count;
 }
