@@ -19,6 +19,8 @@ public class InteractBehaviour : MonoBehaviour
 
     private Vector3 spawnItemOffset = new Vector3(0, 0.5f, 0);
 
+    private bool isBusy = false;
+
     [Header("Tools Visuals")]
     [SerializeField]
     private GameObject pickaxeVisual;
@@ -28,6 +30,13 @@ public class InteractBehaviour : MonoBehaviour
 
     public void DoPickup(Item item)
     {
+        if(isBusy)
+        {
+            return;
+        }
+
+        isBusy = true;
+
         if(inventory.IsFull())
         {
             Debug.Log("Inventory full, can't pick up : " + item.name);
@@ -42,6 +51,13 @@ public class InteractBehaviour : MonoBehaviour
 
     public void DoHarvest(Harvestable harvestable)
     {
+        if (isBusy)
+        {
+            return;
+        }
+
+        isBusy = true;
+
         currentTool = harvestable.tool;
         EnableToolGameObjectFromEnum(currentTool);
 
@@ -53,11 +69,14 @@ public class InteractBehaviour : MonoBehaviour
     // Coroutine appelée depuis l'animation "Harvesting"
     IEnumerator BreakHarvestable()
     {
+        // Permet de désactiver la possibilité d'intéragir avec ce Harvestable + d'un fois (passage du layer Harvestable à Default)
+        currentHarvestable.gameObject.layer = LayerMask.NameToLayer("Default");
+
         if(currentHarvestable.disableKinematicOnHarvest)
         {
             Rigidbody rigidbody = currentHarvestable.gameObject.GetComponent<Rigidbody>();
             rigidbody.isKinematic = false;
-            rigidbody.AddForce(new Vector3(750, 750, 0), ForceMode.Impulse);
+            rigidbody.AddForce(transform.forward * 800, ForceMode.Impulse);
         }
 
         yield return new WaitForSeconds(currentHarvestable.destroyDelay);
@@ -86,6 +105,7 @@ public class InteractBehaviour : MonoBehaviour
     {
         EnableToolGameObjectFromEnum(currentTool, false);
         playerMoveBehaviour.canMove = true;
+        isBusy = false;
     }
 
     private void EnableToolGameObjectFromEnum(Tool toolType, bool enabled = true)
