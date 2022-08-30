@@ -62,11 +62,32 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(ItemData item)
     {
-        ItemInInventory itemInInventory = content.Where(elem => elem.itemData == item).FirstOrDefault();
+        ItemInInventory[] itemInInventory = content.Where(elem => elem.itemData == item).ToArray();
 
-        if(itemInInventory != null && item.stackable)
+        bool itemAdded = false;
+
+        if(itemInInventory.Length > 0 && item.stackable)
         {
-            itemInInventory.count++;
+            for (int i = 0; i < itemInInventory.Length; i++)
+            {
+                if(itemInInventory[i].count < item.maxStack)
+                {
+                    itemAdded = true;
+                    itemInInventory[i].count++;
+                    break;
+                }
+            }
+
+            if(!itemAdded)
+            {
+                content.Add(
+                    new ItemInInventory
+                    {
+                        itemData = item,
+                        count = 1
+                    }
+                );
+            }
         }
         else
         {
@@ -82,13 +103,13 @@ public class Inventory : MonoBehaviour
         RefreshContent();
     }
 
-    public void RemoveItem(ItemData item, int count = 1)
+    public void RemoveItem(ItemData item)
     {
         ItemInInventory itemInInventory = content.Where(elem => elem.itemData == item).FirstOrDefault();
 
-        if(itemInInventory.count > count && item.stackable)
+        if(itemInInventory != null && itemInInventory.count > 1)
         {
-            itemInInventory.count -= count;
+            itemInInventory.count--;
         }
         else
         {

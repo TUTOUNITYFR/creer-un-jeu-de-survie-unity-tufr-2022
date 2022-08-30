@@ -55,9 +55,15 @@ public class Recipe : MonoBehaviour
             requiredItemGO.GetComponent<Slot>().item = requiredItem;
 
             // Si l'inventaire contient l'élément requis on le retire de l'inventaire et on passe au suivant
-            ItemInInventory itemInInventoryCopy = Inventory.instance.GetContent().Where(elem => elem.itemData == requiredItem).FirstOrDefault();
+            ItemInInventory[] itemInInventory = Inventory.instance.GetContent().Where(elem => elem.itemData == requiredItem).ToArray();
 
-            if (itemInInventoryCopy != null && itemInInventoryCopy.count >= recipe.requiredItems[i].count)
+            int totalRequiredItemQuantityInInventory = 0;
+            for (int y = 0; y < itemInInventory.Length; y++)
+            {
+                totalRequiredItemQuantityInInventory += itemInInventory[y].count;
+            }
+
+            if (totalRequiredItemQuantityInInventory >= recipe.requiredItems[i].count)
             {
                 requiredItemGOImage.color = availableColor;
             }
@@ -90,7 +96,10 @@ public class Recipe : MonoBehaviour
     {
         for (int i = 0; i < currentRecipe.requiredItems.Length; i++)
         {
-            Inventory.instance.RemoveItem(currentRecipe.requiredItems[i].itemData, currentRecipe.requiredItems[i].count);
+            for (int y = 0; y < currentRecipe.requiredItems[i].count; y++)
+            {
+                Inventory.instance.RemoveItem(currentRecipe.requiredItems[i].itemData);
+            }
         }
 
         Inventory.instance.AddItem(currentRecipe.craftableItem);
