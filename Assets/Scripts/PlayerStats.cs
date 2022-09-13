@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
     
     [SerializeField]
     private float maxHealth = 100f;
-    private float currentHealth;
+    public float currentHealth;
 
     [SerializeField]
     private Image healthBarFill;
@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Hunger")]
     [SerializeField]
     private float maxHunger = 100f;
-    private float currentHunger;
+    public float currentHunger;
 
     [SerializeField]
     private Image hungerBarFill;
@@ -29,7 +29,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Thirst")]
     [SerializeField]
     private float maxThirst = 100f;
-    private float currentThirst;
+    public float currentThirst;
 
     [SerializeField]
     private Image thirstBarFill;
@@ -69,6 +69,32 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("Player died !");
         }
         
+        UpdateHealthBarFill();
+    }
+
+    public void ConsumeItem(float health, float hunger, float thirst)
+    {
+        currentHealth += health;
+
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        currentHunger += hunger;
+
+        if(currentHunger > maxHunger)
+        {
+            currentHunger = maxHunger;
+        }
+
+        currentThirst += thirst;
+
+        if(currentThirst > maxThirst)
+        {
+            currentThirst = maxThirst;
+        }
+
         UpdateHealthBarFill();
     }
 
