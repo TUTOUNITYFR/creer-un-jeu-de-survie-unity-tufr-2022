@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca79c4638662064a898de39b6ecc42a, type: 3}
+  m_Name: Apple
+  m_EditorClassIdentifier: 
+  name: Apple
+  description: Miam !
+  visual: {fileID: 21300000, guid: b6507193c12cf8e4985d5e0fb278e187, type: 3}
+  prefab: {fileID: 1755865475335770947, guid: 6db7680dca4eb2748a7339cb3bc13d14, type: 3}
+  stackable: 1
+  maxStack: 99
+  healthEffect: 0
+  hungerEffect: 20
+  thirstEffect: 0
+  itemType: 2
+  equipmentType: 0
