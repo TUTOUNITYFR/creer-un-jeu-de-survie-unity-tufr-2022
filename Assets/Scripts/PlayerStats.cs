@@ -54,7 +54,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    void TakeDamage(float damage, bool overTime = false)
+    public void TakeDamage(float damage, bool overTime = false)
     {
         if(overTime)
         {
