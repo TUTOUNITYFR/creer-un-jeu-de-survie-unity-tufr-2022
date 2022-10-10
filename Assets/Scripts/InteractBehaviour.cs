@@ -69,30 +69,32 @@ public class InteractBehaviour : MonoBehaviour
     // Coroutine appelée depuis l'animation "Harvesting"
     IEnumerator BreakHarvestable()
     {
-        // Permet de désactiver la possibilité d'intéragir avec ce Harvestable + d'un fois (passage du layer Harvestable à Default)
-        currentHarvestable.gameObject.layer = LayerMask.NameToLayer("Default");
+        Harvestable currentlyHarvesting = currentHarvestable;
 
-        if(currentHarvestable.disableKinematicOnHarvest)
+        // Permet de désactiver la possibilité d'intéragir avec ce Harvestable + d'un fois (passage du layer Harvestable à Default)
+        currentlyHarvesting.gameObject.layer = LayerMask.NameToLayer("Default");
+
+        if(currentlyHarvesting.disableKinematicOnHarvest)
         {
-            Rigidbody rigidbody = currentHarvestable.gameObject.GetComponent<Rigidbody>();
+            Rigidbody rigidbody = currentlyHarvesting.gameObject.GetComponent<Rigidbody>();
             rigidbody.isKinematic = false;
             rigidbody.AddForce(transform.forward * 800, ForceMode.Impulse);
         }
 
-        yield return new WaitForSeconds(currentHarvestable.destroyDelay);
+        yield return new WaitForSeconds(currentlyHarvesting.destroyDelay);
 
-        for (int i = 0; i < currentHarvestable.harvestableItems.Length; i++)
+        for (int i = 0; i < currentlyHarvesting.harvestableItems.Length; i++)
         {
-            Ressource ressource = currentHarvestable.harvestableItems[i];
+            Ressource ressource = currentlyHarvesting.harvestableItems[i];
 
             if(Random.Range(1, 101) <= ressource.dropChance)
             {
                 GameObject instantiatedRessource = Instantiate(ressource.itemData.prefab);
-                instantiatedRessource.transform.position = currentHarvestable.transform.position + spawnItemOffset;
+                instantiatedRessource.transform.position = currentlyHarvesting.transform.position + spawnItemOffset;
             }
         }
 
-        Destroy(currentHarvestable.gameObject);
+        Destroy(currentlyHarvesting.gameObject);
     }
 
     public void AddItemToInventory()

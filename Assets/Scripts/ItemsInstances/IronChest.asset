@@ -16,5 +16,11 @@ MonoBehaviour:
   description: A solid iron chestplate
   visual: {fileID: 21300000, guid: 5469508ff4cb6e44aa9fe68b67aa755b, type: 3}
   prefab: {fileID: 5974227363662879482, guid: fbb9b2bb6a517964bb1b125cd30bd7d5, type: 3}
+  stackable: 0
+  maxStack: 0
+  healthEffect: 0
+  hungerEffect: 0
+  thirstEffect: 0
+  armorPoints: 10
   itemType: 1
   equipmentType: 1

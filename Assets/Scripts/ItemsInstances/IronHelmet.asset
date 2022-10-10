@@ -16,4 +16,11 @@ MonoBehaviour:
   description: A simple helmet made of iron.
   visual: {fileID: 21300000, guid: 358541a3db89a6f45956a5d4726d7312, type: 3}
   prefab: {fileID: 2604410954874609826, guid: cf0a433cfa73aee409009ebf0afb35c9, type: 3}
+  stackable: 0
+  maxStack: 0
+  healthEffect: 0
+  hungerEffect: 0
+  thirstEffect: 0
+  armorPoints: 2
   itemType: 1
+  equipmentType: 0
