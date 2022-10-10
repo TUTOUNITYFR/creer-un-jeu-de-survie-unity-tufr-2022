@@ -16,5 +16,11 @@ MonoBehaviour:
   description: 100% coton
   visual: {fileID: 21300000, guid: 0ecfc25e64ad1ef4b9775690fa709b5a, type: 3}
   prefab: {fileID: 6071524798537545283, guid: d94b0dca82ca8e74c832d120f965d1ce, type: 3}
+  stackable: 0
+  maxStack: 0
+  healthEffect: 0
+  hungerEffect: 0
+  thirstEffect: 0
+  armorPoints: 1
   itemType: 1
   equipmentType: 1

@@ -8,16 +8,13 @@ public class EnemyAI : MonoBehaviour
     [Header("References")]
 
     [SerializeField]
-    private Transform player;
-
-    [SerializeField]
-    private PlayerStats playerStats;
-
-    [SerializeField]
     private NavMeshAgent agent;
 
     [SerializeField]
     private Animator animator;
+
+    private Transform player;
+    private PlayerStats playerStats;
 
     [Header("Stats")]
 
@@ -59,9 +56,17 @@ public class EnemyAI : MonoBehaviour
     private bool hasDestination;
     private bool isAttacking;
 
+    private void Awake()
+    {
+        Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        player = playerTransform;
+        playerStats = playerTransform.GetComponent<PlayerStats>();
+    }
+
     void Update()
     {
-        if(Vector3.Distance(player.position, transform.position) < detectionRadius)
+        if(Vector3.Distance(player.position, transform.position) < detectionRadius && !playerStats.isDead)
         {
             agent.speed = chaseSpeed;
 
@@ -72,7 +77,7 @@ public class EnemyAI : MonoBehaviour
             {
                 if (Vector3.Distance(player.position, transform.position) < attackRadius)
                 {
-                    StartCoroutine(attackPlayer());
+                    StartCoroutine(AttackPlayer());
                 }
                 else
                 {
@@ -110,7 +115,7 @@ public class EnemyAI : MonoBehaviour
         hasDestination = false;
     }
 
-    IEnumerator attackPlayer()
+    IEnumerator AttackPlayer()
     {
         isAttacking = true;
         agent.isStopped = true;

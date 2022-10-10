@@ -16,5 +16,11 @@ MonoBehaviour:
   description: A nice pants !
   visual: {fileID: 21300000, guid: dff4124e641058b4589e05274e744e74, type: 3}
   prefab: {fileID: 4482280266995810147, guid: 0188a647037119d4ca2aba5580945749, type: 3}
+  stackable: 0
+  maxStack: 0
+  healthEffect: 0
+  hungerEffect: 0
+  thirstEffect: 0
+  armorPoints: 1
   itemType: 1
   equipmentType: 3
