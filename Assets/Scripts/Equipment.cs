@@ -32,12 +32,17 @@ public class Equipment : MonoBehaviour
     [SerializeField]
     private Image feetSlotImage;
 
+    [SerializeField]
+    private Image weaponSlotImage;
+
     // Garde une trace des équipements actuels
     private ItemData equipedHeadItem;
     private ItemData equipedChestItem;
     private ItemData equipedHandsItem;
     private ItemData equipedLegsItem;
     private ItemData equipedFeetItem;
+    [HideInInspector]
+    public ItemData equipedWeaponItem;
 
     [SerializeField]
     private Button headSlotDesequipButton;
@@ -53,6 +58,9 @@ public class Equipment : MonoBehaviour
 
     [SerializeField]
     private Button feetSlotDesequipButton;
+
+    [SerializeField]
+    private Button weaponSlotDesequipButton;
 
     private void DisablePreviousEquipedEquipment(ItemData itemToDisable)
     {
@@ -119,6 +127,12 @@ public class Equipment : MonoBehaviour
                 equipedFeetItem = null;
                 feetSlotImage.sprite = Inventory.instance.emptySlotVisual;
                 break;
+
+            case EquipmentType.Weapon:
+                currentItem = equipedWeaponItem;
+                equipedWeaponItem = null;
+                weaponSlotImage.sprite = Inventory.instance.emptySlotVisual;
+                break;
         }
 
         EquipmentLibraryItem equipmentLibraryItem = equipmentLibrary.content.Where(elem => elem.itemData == currentItem).First();
@@ -160,6 +174,10 @@ public class Equipment : MonoBehaviour
         feetSlotDesequipButton.onClick.RemoveAllListeners();
         feetSlotDesequipButton.onClick.AddListener(delegate { DesequipEquipment(EquipmentType.Feet); });
         feetSlotDesequipButton.gameObject.SetActive(equipedFeetItem);
+
+        weaponSlotDesequipButton.onClick.RemoveAllListeners();
+        weaponSlotDesequipButton.onClick.AddListener(delegate { DesequipEquipment(EquipmentType.Weapon); });
+        weaponSlotDesequipButton.gameObject.SetActive(equipedWeaponItem);
     }
 
     public void EquipAction()
@@ -200,6 +218,12 @@ public class Equipment : MonoBehaviour
                     DisablePreviousEquipedEquipment(equipedFeetItem);
                     feetSlotImage.sprite = itemActionsSystem.itemCurrentlySelected.visual;
                     equipedFeetItem = itemActionsSystem.itemCurrentlySelected;
+                    break;
+
+                case EquipmentType.Weapon:
+                    DisablePreviousEquipedEquipment(equipedWeaponItem);
+                    weaponSlotImage.sprite = itemActionsSystem.itemCurrentlySelected.visual;
+                    equipedWeaponItem = itemActionsSystem.itemCurrentlySelected;
                     break;
             }
 
