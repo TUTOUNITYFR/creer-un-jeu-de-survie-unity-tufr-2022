@@ -39,5 +39,6 @@ public enum EquipmentType
     Chest,
     Hands,
     Legs,
-    Feet
+    Feet,
+    Weapon
 }
