@@ -10,9 +10,6 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private MoveBehaviour playerMovementScript;
 
-    [SerializeField]
-    private AimBehaviourBasic playerAimScript;
-
     [Header("Health")]
     
     [SerializeField]
@@ -94,7 +91,6 @@ public class PlayerStats : MonoBehaviour
 
         // Bloque le mouvement du joueur + mode inspection
         playerMovementScript.canMove = false;
-        playerAimScript.enabled = false;
 
         // On bloque la diminution des barres de faim et soif
         hungerDecreaseRate = 0;

@@ -2929,7 +2929,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690569722}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccf73af5b6cd8cf48b143aaf36d12708, type: 3}
   m_Name: 
@@ -2940,6 +2940,7 @@ MonoBehaviour:
   - {fileID: 32607051}
   - {fileID: 1642198340}
   playerCameraScript: {fileID: 56542409}
+  atLeastOnePanelOpened: 0
 --- !u!224 &718102322 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5510068468797881106, guid: e200f17ed73e4e84ba018c4dd25387a1, type: 3}
@@ -2984,6 +2985,7 @@ MonoBehaviour:
   aimTurnSmoothing: 0.15
   aimPivotOffset: {x: 0.5, y: 1.2, z: 0}
   aimCamOffset: {x: 0, y: 0.5, z: -1}
+  playerStats: {fileID: 728510997}
 --- !u!114 &728510989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3075,6 +3077,9 @@ MonoBehaviour:
   playerMoveBehaviour: {fileID: 728510989}
   playerAnimator: {fileID: 728510995}
   inventory: {fileID: 1695160465}
+  equipmentSystem: {fileID: 1695160468}
+  equipmentLibrary: {fileID: 690569725}
+  isBusy: 0
   pickaxeVisual: {fileID: 431708941}
   axeVisual: {fileID: 1871868080}
 --- !u!114 &728510997
@@ -3091,7 +3096,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 728510995}
   playerMovementScript: {fileID: 728510989}
-  playerAimScript: {fileID: 728510988}
   maxHealth: 100
   currentHealth: 0
   healthBarFill: {fileID: 454243177}
@@ -3120,6 +3124,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 728510995}
   equipmentSystem: {fileID: 1695160468}
+  uiManager: {fileID: 690569727}
+  interactBehaviour: {fileID: 728510996}
+  attackRange: 2.2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  attackOffset: {x: 0, y: 1.3, z: 0}
 --- !u!1 &739713491
 GameObject:
   m_ObjectHideFlags: 0
@@ -6816,7 +6827,9 @@ MonoBehaviour:
   equipment: {fileID: 1695160468}
   itemActionsSystem: {fileID: 1695160467}
   craftingSystem: {fileID: 690569726}
-  content: []
+  content:
+  - itemData: {fileID: 11400000, guid: 9ec1e81077817a14e95044c8082356f8, type: 2}
+    count: 1
   inventoryPanel: {fileID: 1896388386}
   inventorySlotsParent: {fileID: 1521099701}
   emptySlotVisual: {fileID: 21300000, guid: 25d0ac2a41f0cd541869ac8148bf3e3f, type: 3}
@@ -9055,7 +9068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2406822248579021368, guid: e9cd62fe9c6ae2846a2fe8c7eb86a834, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.02
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2406822248579021368, guid: e9cd62fe9c6ae2846a2fe8c7eb86a834, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9063,7 +9076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2406822248579021368, guid: e9cd62fe9c6ae2846a2fe8c7eb86a834, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.23
+      value: -5.74
       objectReference: {fileID: 0}
     - target: {fileID: 2406822248579021368, guid: e9cd62fe9c6ae2846a2fe8c7eb86a834, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9097,14 +9110,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear
       objectReference: {fileID: 0}
-    - target: {fileID: 4923131711553074821, guid: e9cd62fe9c6ae2846a2fe8c7eb86a834, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 728510994}
-    - target: {fileID: 4923131711553074821, guid: e9cd62fe9c6ae2846a2fe8c7eb86a834, type: 3}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 728510997}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9cd62fe9c6ae2846a2fe8c7eb86a834, type: 3}
 --- !u!1001 &5510068468346460931

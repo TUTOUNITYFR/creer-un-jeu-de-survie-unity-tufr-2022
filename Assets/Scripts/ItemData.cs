@@ -21,6 +21,9 @@ public class ItemData : ScriptableObject
     [Header("Armor Stats")]
     public float armorPoints;
 
+    [Header("Attack Stats")]
+    public float attackPoints;
+
     [Header("Types")]
     public ItemType itemType;
     public EquipmentType equipmentType;

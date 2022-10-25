@@ -22,5 +22,6 @@ MonoBehaviour:
   hungerEffect: 0
   thirstEffect: 0
   armorPoints: 0
+  attackPoints: 20
   itemType: 1
   equipmentType: 5

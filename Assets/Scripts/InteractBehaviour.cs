@@ -1,9 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class InteractBehaviour : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField]
     private MoveBehaviour playerMoveBehaviour;
 
@@ -13,13 +14,14 @@ public class InteractBehaviour : MonoBehaviour
     [SerializeField]
     private Inventory inventory;
 
-    private Item currentItem;
-    private Harvestable currentHarvestable;
-    private Tool currentTool;
+    [SerializeField]
+    private Equipment equipmentSystem;
 
-    private Vector3 spawnItemOffset = new Vector3(0, 0.5f, 0);
+    [SerializeField]
+    private EquipmentLibrary equipmentLibrary;
 
-    private bool isBusy = false;
+    [HideInInspector]
+    public bool isBusy = false;
 
     [Header("Tools Visuals")]
     [SerializeField]
@@ -27,6 +29,12 @@ public class InteractBehaviour : MonoBehaviour
 
     [SerializeField]
     private GameObject axeVisual;
+
+    private Item currentItem;
+    private Harvestable currentHarvestable;
+    private Tool currentTool;
+
+    private Vector3 spawnItemOffset = new Vector3(0, 0.5f, 0);
 
     public void DoPickup(Item item)
     {
@@ -112,7 +120,19 @@ public class InteractBehaviour : MonoBehaviour
 
     private void EnableToolGameObjectFromEnum(Tool toolType, bool enabled = true)
     {
-        switch(toolType)
+        EquipmentLibraryItem equipmentLibraryItem = equipmentLibrary.content.Where(elem => elem.itemData == equipmentSystem.equipedWeaponItem).First();
+
+        if (equipmentLibraryItem != null)
+        {
+            for (int i = 0; i < equipmentLibraryItem.elementsToDisable.Length; i++)
+            {
+                equipmentLibraryItem.elementsToDisable[i].SetActive(enabled);
+            }
+
+            equipmentLibraryItem.itemPrefab.SetActive(!enabled);
+        }
+
+        switch (toolType)
         {
             case Tool.Pickaxe:
                 pickaxeVisual.SetActive(enabled);
