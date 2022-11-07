@@ -13,6 +13,9 @@ public class AimBehaviourBasic : GenericBehaviour
 	private int aimBool;                                                  // Animator variable related to aiming.
 	private bool aim;                                                     // Boolean to determine whether or not the player is aiming.
 
+	[SerializeField]
+	private PlayerStats playerStats;
+
 	// Start is always called after any Awake functions.
 	void Start ()
 	{
@@ -24,11 +27,11 @@ public class AimBehaviourBasic : GenericBehaviour
 	void Update ()
 	{
 		// Activate/deactivate aim by input.
-		if (Input.GetAxisRaw(aimButton) != 0 && !aim)
+		if (Input.GetAxisRaw(aimButton) != 0 && !aim && !playerStats.isDead)
 		{
 			StartCoroutine(ToggleAimOn());
 		}
-		else if (aim && Input.GetAxisRaw(aimButton) == 0)
+		else if ((aim && Input.GetAxisRaw(aimButton) == 0) || playerStats.isDead)
 		{
 			StartCoroutine(ToggleAimOff());
 		}

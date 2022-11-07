@@ -19,6 +19,12 @@ public class EnemyAI : MonoBehaviour
     [Header("Stats")]
 
     [SerializeField]
+    private float maxHealth;
+
+    [SerializeField]
+    private float currentHealth;
+
+    [SerializeField]
     private float walkSpeed;
 
     [SerializeField]
@@ -55,6 +61,7 @@ public class EnemyAI : MonoBehaviour
 
     private bool hasDestination;
     private bool isAttacking;
+    private bool isDead;
 
     private void Awake()
     {
@@ -62,6 +69,8 @@ public class EnemyAI : MonoBehaviour
 
         player = playerTransform;
         playerStats = playerTransform.GetComponent<PlayerStats>();
+
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -99,6 +108,27 @@ public class EnemyAI : MonoBehaviour
         animator.SetFloat("Speed", agent.velocity.magnitude);
     }
 
+    public void TakeDammage(float damages)
+    {
+        if (isDead)
+        {
+            return;
+        }
+
+        currentHealth -= damages;
+
+        if(currentHealth <= 0)
+        {
+            isDead = true;
+            animator.SetTrigger("Die");
+            agent.enabled = false;
+            enabled = false;
+        } else
+        {
+            animator.SetTrigger("GetHit");
+        }
+    }
+
     IEnumerator GetNewDestination()
     {
         hasDestination = true;
@@ -125,7 +155,12 @@ public class EnemyAI : MonoBehaviour
         playerStats.TakeDamage(damageDealt);
 
         yield return new WaitForSeconds(attackDelay);
-        agent.isStopped = false;
+
+        if(agent.enabled)
+        {
+            agent.isStopped = false;
+        }
+        
         isAttacking = false;
     }
 
