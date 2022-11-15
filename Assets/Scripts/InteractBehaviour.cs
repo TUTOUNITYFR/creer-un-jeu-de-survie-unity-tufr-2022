@@ -120,7 +120,7 @@ public class InteractBehaviour : MonoBehaviour
 
     private void EnableToolGameObjectFromEnum(Tool toolType, bool enabled = true)
     {
-        EquipmentLibraryItem equipmentLibraryItem = equipmentLibrary.content.Where(elem => elem.itemData == equipmentSystem.equipedWeaponItem).First();
+        EquipmentLibraryItem equipmentLibraryItem = equipmentLibrary.content.Where(elem => elem.itemData == equipmentSystem.equipedWeaponItem).FirstOrDefault();
 
         if (equipmentLibraryItem != null)
         {
