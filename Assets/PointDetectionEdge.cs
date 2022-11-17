@@ -28,9 +28,6 @@ public class PointDetectionEdge : MonoBehaviour
                     return;
                 }
             }
-        } else
-        {
-            connected = false;
         }
     }
 

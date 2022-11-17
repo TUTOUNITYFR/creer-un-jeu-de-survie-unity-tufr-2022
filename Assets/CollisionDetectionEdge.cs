@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class CollisionDetectionEdge : MonoBehaviour
 {
@@ -21,15 +22,12 @@ public class CollisionDetectionEdge : MonoBehaviour
 
         if(hitColliders.Length > 0)
         {
-            foreach (var collider in hitColliders)
+            if(hitColliders.Any(collider => collider.CompareTag(transform.tag)))
             {
-                if(collider.CompareTag(transform.tag))
-                {
-                    return false;
-                }else if(collider.CompareTag("Terrain"))
-                {
-                    return true;
-                }
+                return false;
+            } else if(hitColliders.Any(collider => collider.CompareTag("Terrain")))
+            {
+                return true;
             }
         }
         
