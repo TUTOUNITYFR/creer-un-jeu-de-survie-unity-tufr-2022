@@ -215,6 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569236792593852}
   - component: {fileID: 65635789064786790}
+  - component: {fileID: 5450735240970622382}
   m_Layer: 0
   m_Name: FloorPrefab
   m_TagString: Floor
@@ -255,6 +256,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6, y: 6, z: 0.1}
   m_Center: {x: 0.019240497, y: -3, z: 0}
+--- !u!208 &5450735240970622382
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527144690250136}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3, y: 3, z: 0.05}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.0192405, y: -3, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1557284825032832
 GameObject:
   m_ObjectHideFlags: 0
