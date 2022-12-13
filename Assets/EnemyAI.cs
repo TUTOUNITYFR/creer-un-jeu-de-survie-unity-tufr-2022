@@ -13,6 +13,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     private Transform player;
     private PlayerStats playerStats;
 
@@ -149,6 +152,8 @@ public class EnemyAI : MonoBehaviour
     {
         isAttacking = true;
         agent.isStopped = true;
+
+        audioSource.Play();
 
         animator.SetTrigger("Attack");
 
