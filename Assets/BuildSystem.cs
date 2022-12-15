@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
 
 public class BuildSystem : MonoBehaviour
 {
     [Header("Configuration")]
     [SerializeField]
     private Grid grid;
+
+    [SerializeField]
+    private Transform placedStructuresParent;
 
     [SerializeField]
     private Structure[] structures;
@@ -37,6 +41,8 @@ public class BuildSystem : MonoBehaviour
     private bool canBuild;
     private Vector3 finalPosition;
     private bool systemEnabled = false;
+
+    public List<PlacedStructure> placedStructures;
 
     private void Awake()
     {
@@ -108,7 +114,9 @@ public class BuildSystem : MonoBehaviour
 
     void BuildStructure()
     {
-        Instantiate(currentStructure.instantiatedPrefab, currentStructure.placementPrefab.transform.position, currentStructure.placementPrefab.transform.GetChild(0).transform.rotation);
+        Instantiate(currentStructure.instantiatedPrefab, currentStructure.placementPrefab.transform.position, currentStructure.placementPrefab.transform.GetChild(0).transform.rotation, placedStructuresParent);
+
+        placedStructures.Add(new PlacedStructure { prefab = currentStructure.instantiatedPrefab, positions = currentStructure.placementPrefab.transform.position, rotations = currentStructure.placementPrefab.transform.GetChild(0).transform.rotation.eulerAngles });
 
         audioSource.PlayOneShot(buildingSound);
 
@@ -243,6 +251,17 @@ public class BuildSystem : MonoBehaviour
             requiredElementGO.GetComponent<BuildingRequiredElement>().Setup(requiredRessource);
         }
     }
+
+    public void LoadStructures(PlacedStructure[] structuresToLoad)
+    {
+        foreach (PlacedStructure structure in structuresToLoad)
+        {
+            placedStructures.Add(structure);
+            GameObject newStructure = Instantiate(structure.prefab, placedStructuresParent);
+            newStructure.transform.position = structure.positions;
+            newStructure.transform.rotation = Quaternion.Euler(structure.rotations);
+        }
+    }
 }
 
 [System.Serializable]
@@ -259,4 +278,12 @@ public enum StructureType
     Stairs,
     Wall,
     Floor
+}
+
+[System.Serializable]
+public class PlacedStructure
+{
+    public GameObject prefab;
+    public Vector3 positions;
+    public Vector3 rotations;
 }
