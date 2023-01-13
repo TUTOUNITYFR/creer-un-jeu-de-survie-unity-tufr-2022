@@ -178,6 +178,17 @@ public class Inventory : MonoBehaviour
         return InventorySize == content.Count;
     }
 
+    public void LoadData(List<ItemInInventory> savedData)
+    {
+        content = savedData;
+        RefreshContent();
+    }
+
+    public void ClearContent()
+    {
+        content.Clear();
+    }
+
 }
 
 [System.Serializable]
