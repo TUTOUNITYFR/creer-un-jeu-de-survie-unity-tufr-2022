@@ -17,6 +17,14 @@ public class SaveSystem : MonoBehaviour
     [SerializeField]
     private BuildSystem buildSystem;
 
+    private void Start()
+    {
+        if(MainMenu.loadSavedData)
+        {
+            LoadData();
+        }
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F5))
