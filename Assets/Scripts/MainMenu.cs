@@ -7,14 +7,15 @@ using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField]
-    private Button loadGameButton;
+    public Button loadGameButton;
 
-    [SerializeField]
-    private Button clearSavedDataButton;
+    public Button clearSavedDataButton;
 
     [SerializeField]
     private Dropdown resolutionsDropdown;
+
+    [SerializeField]
+    private Dropdown qualitiesDropdown;
 
     [SerializeField]
     private AudioMixer audioMixer;
@@ -24,6 +25,9 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField]
     private GameObject optionsPanel;
+
+    [SerializeField]
+    private Toggle fullScreenToggle;
 
     public static bool loadSavedData;
 
@@ -37,6 +41,27 @@ public class MainMenu : MonoBehaviour
         bool saveFileExist = System.IO.File.Exists(Application.persistentDataPath + "/SavedData.json");
         loadGameButton.interactable = saveFileExist;
         clearSavedDataButton.interactable = saveFileExist;
+
+        // Init des qualités graphiques
+        string[] qualities = QualitySettings.names;
+        qualitiesDropdown.ClearOptions();
+
+        List<string> qualityOptions = new List<string>();
+        int currentQualityIndex = 0;
+
+        for (int i = 0; i < qualities.Length; i++)
+        {
+            qualityOptions.Add(qualities[i]);
+
+            if(i == QualitySettings.GetQualityLevel())
+            {
+                currentQualityIndex = i;
+            }
+        }
+
+        qualitiesDropdown.AddOptions(qualityOptions);
+        qualitiesDropdown.value = currentQualityIndex;
+        qualitiesDropdown.RefreshShownValue();
 
         // Initialisation des différentes résolutions
         Resolution[] resolutions = Screen.resolutions;
@@ -59,6 +84,9 @@ public class MainMenu : MonoBehaviour
         resolutionsDropdown.AddOptions(resolutionOptions);
         resolutionsDropdown.value = currentResolutionIndex;
         resolutionsDropdown.RefreshShownValue();
+
+        // Init du Toggle Full Screen
+        fullScreenToggle.isOn = Screen.fullScreen;
     }
 
     public void NewGameButton()
@@ -73,6 +101,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Scene");
     }
 
+    public void LoadMainMenuButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void QuitGameButton()
     {
         Application.Quit();
@@ -82,6 +116,11 @@ public class MainMenu : MonoBehaviour
     {
         Resolution resolution = Screen.resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
     }
 
     public void SetFullScreen(bool isFullScreen)
