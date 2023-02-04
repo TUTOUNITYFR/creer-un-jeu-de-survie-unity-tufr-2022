@@ -26,6 +26,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject optionsPanel;
 
+    [SerializeField]
+    private Toggle fullScreenToggle;
+
     public static bool loadSavedData;
 
     void Start()
@@ -81,6 +84,9 @@ public class MainMenu : MonoBehaviour
         resolutionsDropdown.AddOptions(resolutionOptions);
         resolutionsDropdown.value = currentResolutionIndex;
         resolutionsDropdown.RefreshShownValue();
+
+        // Init du Toggle Full Screen
+        fullScreenToggle.isOn = Screen.fullScreen;
     }
 
     public void NewGameButton()
@@ -97,6 +103,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadMainMenuButton()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 

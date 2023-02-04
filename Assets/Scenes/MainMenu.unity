@@ -1790,6 +1790,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 331ad31b8b07b134d817711c7d30fbe5, type: 2}
   soundSlider: {fileID: 1694968773}
   optionsPanel: {fileID: 1369893258}
+  fullScreenToggle: {fileID: 380596560}
 --- !u!114 &706773492
 MonoBehaviour:
   m_ObjectHideFlags: 0
